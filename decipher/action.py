@@ -16,7 +16,7 @@ def transcribe(video_in, output_dir, model, language, task, subs):
     stream = (
         ffmpeg
         .input(video_in)
-        .output(audio_file, vn=None, acodec='copy')
+        .output(audio_file, vn=None, acodec='pcm')
         .overwrite_output()
     )
     execute(stream, desc=f"Converting {video_in.name} to {audio_file}...")
